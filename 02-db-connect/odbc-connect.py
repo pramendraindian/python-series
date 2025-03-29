@@ -11,6 +11,10 @@ conn_str = (
 conn = pyodbc.connect(conn_str)
 cursor = conn.cursor()
 cursor.execute('SELECT * FROM Products')
-
+''' commented code
 for row in cursor:
     print('row = %r' % (row,))
+'''
+records = cursor.fetchall()
+for r in records:
+    print(f"{r.Id}\t{r.Name}\t{r.Description}")
